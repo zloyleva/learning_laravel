@@ -33,7 +33,13 @@ class PostsController extends Controller
           'body'   => 'required|min:10'
         ]);
 
-        Post::create(request(['title', 'body']));
+        $args = array(
+            'title' => request('title'),
+            'body'  => request('body'),
+            'user_id'   => auth()->id()
+        );
+
+        Post::create($args);
 
         return redirect('/');
     }
