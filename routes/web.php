@@ -33,5 +33,5 @@ Route::post('/posts/{post}/comments', 'CommentsController@store');
 Route::get('/register', 'RegisterController@create');
 Route::post('/register', 'RegisterController@store');
 
-Route::get('/login', 'SessionsController@create');
+Route::get('/login', 'SessionsController@create')->name('login');
 Route::get('/logout', 'SessionsController@destroy');

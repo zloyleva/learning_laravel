@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class PostsController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('auth')->except(['index']);
+    }
+
     public function index(){
         $posts = Post::latest()->get();
         return view('posts.index', compact('posts'));
