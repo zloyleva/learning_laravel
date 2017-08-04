@@ -14,9 +14,6 @@ class Post extends Model
 
 
     function addComment($body){
-        Comment::create(array(
-            'body'  =>  $body,
-            'post_id'   =>  $this->id
-        ));
+        $this->comments()->create(compact('body'));
     }
 }

@@ -19,6 +19,8 @@
 
             @endforeach
 
+            @include('layouts.errors')
+
             <form method="post" action="/posts/{{$post->id}}/comments">
                 {{csrf_field()}}
                 <div class="form-group">
