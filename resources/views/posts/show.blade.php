@@ -19,6 +19,14 @@
 
             @endforeach
 
+            <form method="post" action="/posts/{{$post->id}}/comments">
+                {{csrf_field()}}
+                <div class="form-group">
+                    <textarea name="body" id="" cols="30" rows="10" class="form-control" placeholder="Enter your comment here"></textarea>
+                </div>
+                <input type="submit" value="Add comment" class="btn btn-default">
+            </form>
+
         </div>
 
     </div><!-- /.blog-main -->
