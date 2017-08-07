@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Comment;
+use App\User;
 use App\Post;
 use Illuminate\Http\Request;
 
@@ -33,13 +33,15 @@ class PostsController extends Controller
           'body'   => 'required|min:10'
         ]);
 
-        $args = array(
-            'title' => request('title'),
-            'body'  => request('body'),
-            'user_id'   => auth()->id()
-        );
+        auth()->user()->publish( new Post(request(['title', 'body'])) );
 
-        Post::create($args);
+//        $args = array(
+//            'title' => request('title'),
+//            'body'  => request('body'),
+//            'user_id'   => auth()->id()
+//        );
+//
+//        Post::create($args);
 
         return redirect('/');
     }
